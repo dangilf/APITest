@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace TestApp.DAL.Models
 {
-    public class Project
+    public class Project : BaseEntity
     {
         public string Title { get; set; }
         public string Key { get; set; }
         public virtual List<Task> Tasks { get; set; }
+        
     }
 }
