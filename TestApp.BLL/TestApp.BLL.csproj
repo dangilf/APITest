@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\BaseCRUDService.cs" />
+    <Compile Include="Interfaces\IBaseService.cs" />
     <Compile Include="Interfaces\IEmployeesService.cs" />
     <Compile Include="Interfaces\IProjectsService.cs" />
     <Compile Include="Interfaces\ITasksService.cs" />
