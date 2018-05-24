@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using TestApp.Domain.Core.Models;
 
-namespace TestApp.DAL.Repository
+namespace TestApp.DAL.Interfaces
 {
-    public interface IRepository<TEntity> where TEntity : class
+    public interface IRepository<TEntity> where TEntity : BaseEntity
     {
         void Create(TEntity item);
         TEntity FindById(int id);
-        IEnumerable<TEntity> Get();
+        IEnumerable<TEntity> GetAll();
         IEnumerable<TEntity> Get(Func<TEntity, bool> predicate);
         void Remove(TEntity item);
+        void Remove(int id);
         void Update(TEntity item);
     }
 }

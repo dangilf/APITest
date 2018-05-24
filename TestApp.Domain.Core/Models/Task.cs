@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestApp.DAL.Models
+namespace TestApp.Domain.Core.Models
 {
     public class Task: BaseEntity
     {

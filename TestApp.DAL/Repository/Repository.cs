@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TestApp.DAL.Models;
+using TestApp.DAL.Interfaces;
+using TestApp.Domain.Core.Models;
 
 namespace TestApp.DAL.Repository
 {
@@ -19,7 +18,7 @@ namespace TestApp.DAL.Repository
             _dbSet = context.Set<TEntity>();
         }
 
-        public IEnumerable<TEntity> Get()
+        public IEnumerable<TEntity> GetAll()
         {
             return _dbSet.AsNoTracking().ToList();
         }
@@ -36,17 +35,22 @@ namespace TestApp.DAL.Repository
         public void Create(TEntity item)
         {
             _dbSet.Add(item);
-            _context.SaveChanges();
         }
         public void Update(TEntity item)
         {
             _context.Entry(item).State = EntityState.Modified;
-            _context.SaveChanges();
         }
         public void Remove(TEntity item)
         {
             _dbSet.Remove(item);
-            _context.SaveChanges();
+        }
+        public void Remove(int id)
+        {
+            var entity=_dbSet.Find(id);
+            if (entity != null)
+            {
+                _dbSet.Remove(entity);
+            }
         }
     }
 }

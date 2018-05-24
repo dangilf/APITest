@@ -1,16 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6CB07D2D-2638-4A82-BB7F-CDFD0D851F89}</ProjectGuid>
+    <ProjectGuid>{38AE3575-3DDB-46FB-9284-BDE187B66F8E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestApp.DAL</RootNamespace>
-    <AssemblyName>TestApp.DAL</AssemblyName>
+    <RootNamespace>TestApp.BLL</RootNamespace>
+    <AssemblyName>TestApp.BLL</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,14 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,33 +41,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EF\StoreDbInitializer.cs" />
-    <Compile Include="EF\TestAppDBContext.cs" />
-    <Compile Include="Interfaces\IUnitOfWork.cs" />
-    <Compile Include="Migrations\201805241405176_initial.cs" />
-    <Compile Include="Migrations\201805241405176_initial.Designer.cs">
-      <DependentUpon>201805241405176_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Interfaces\BaseCRUDService.cs" />
+    <Compile Include="Interfaces\IEmployeesService.cs" />
+    <Compile Include="Interfaces\IProjectsService.cs" />
+    <Compile Include="Interfaces\ITasksService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Interfaces\IRepository.cs" />
-    <Compile Include="Repository\EFUnitOfWork.cs" />
-    <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Services\EmployeesService.cs" />
+    <Compile Include="Services\ProjectsService.cs" />
+    <Compile Include="Services\TasksService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\TestApp.DAL\TestApp.DAL.csproj">
+      <Project>{6cb07d2d-2638-4a82-bb7f-cdfd0d851f89}</Project>
+      <Name>TestApp.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TestApp.Domain.Core\TestApp.Domain.Core.csproj">
       <Project>{a2dcfaa7-5b26-4f13-aa3d-391333fb8063}</Project>
       <Name>TestApp.Domain.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805241405176_initial.resx">
-      <DependentUpon>201805241405176_initial.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
 </Project>
