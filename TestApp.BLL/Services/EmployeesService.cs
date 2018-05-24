@@ -13,17 +13,20 @@ namespace TestApp.BLL.Services
 
         public IEnumerable<Task> GetAllTasks(int employeeId)
         {
-            return uof.Repository<Task>().Get(t => t.Employee.ID == employeeId);
+            return uof.Repository<Task>().Get(t => t.Employee !=null
+                                                && t.Employee.ID == employeeId);
         }
 
         public IEnumerable<Task> GetAllTasksByProject(int employeeId, int projectId)
         {
-            return uof.Repository<Task>().Get(t => t.Employee.ID == employeeId && t.Project.ID == projectId);
+            return uof.Repository<Task>().Get(t => t.Employee != null && t.Project != null
+                                            && t.Employee.ID == employeeId && t.Project.ID == projectId);
         }
 
         public IEnumerable<Task> GetAllTasksByStatus(int employeeId, string status)
         {
-            return uof.Repository<Task>().Get(t => t.Employee.ID == employeeId && t.Status.Equals(status));
+            return uof.Repository<Task>().Get(t => t.Employee != null && 
+                                                    t.Employee.ID == employeeId && t.Status.Equals(status));
         }
     }
 }

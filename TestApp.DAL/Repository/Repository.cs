@@ -27,7 +27,7 @@ namespace TestApp.DAL.Repository
         {
             return _dbSet.AsNoTracking().Where(predicate).ToList();
         }
-        public TEntity FindById(int id)
+        public TEntity GetById(int id)
         {
             return _dbSet.Find(id);
         }

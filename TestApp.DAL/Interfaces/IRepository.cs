@@ -7,7 +7,7 @@ namespace TestApp.DAL.Interfaces
     public interface IRepository<TEntity> where TEntity : BaseEntity
     {
         void Create(TEntity item);
-        TEntity FindById(int id);
+        TEntity GetById(int id);
         IEnumerable<TEntity> GetAll();
         IEnumerable<TEntity> Get(Func<TEntity, bool> predicate);
         void Remove(TEntity item);

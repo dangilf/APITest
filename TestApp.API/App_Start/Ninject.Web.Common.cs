@@ -13,6 +13,10 @@ namespace TestApp.API.App_Start
     using System.Web.Mvc;
     using Infrastructure;
     using Ninject.Web.Common.WebHost;
+    using BLL.Interfaces;
+    using BLL.Services;
+    using DAL.Repository;
+    using DAL.Interfaces;
 
     public static class NinjectWebCommon 
     {
@@ -47,6 +51,7 @@ namespace TestApp.API.App_Start
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
+                System.Web.Http.GlobalConfiguration.Configuration.DependencyResolver = new Ninject.Web.WebApi.NinjectDependencyResolver(kernel);
                 RegisterServices(kernel);
                 return kernel;
             }
@@ -62,8 +67,8 @@ namespace TestApp.API.App_Start
         /// </summary>
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
-        {
-            DependencyResolver.SetResolver(new TestAppApiModule(kernel));
+        {           
+            DependencyResolver.SetResolver(new TestAppDependencyResolver(kernel));
         }        
     }
 }

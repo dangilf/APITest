@@ -12,10 +12,10 @@ using TestApp.DAL.Repository;
 
 namespace TestApp.API.Infrastructure
 {
-    public class TestAppApiModule: IDependencyResolver
+    public class TestAppDependencyResolver : IDependencyResolver
     {
         private IKernel kernel;
-        public TestAppApiModule(IKernel kernelParam)
+        public TestAppDependencyResolver(IKernel kernelParam)
         {
             kernel = kernelParam;
             AddBindings();

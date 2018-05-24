@@ -28,7 +28,7 @@ namespace TestApp.BLL.Interfaces
 
         public TEntity GetById(int id)
         {
-            return uof.Repository<TEntity>().FindById(id);
+            return uof.Repository<TEntity>().GetById(id);
         }
 
         public void Create(TEntity entity)

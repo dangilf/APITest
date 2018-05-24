@@ -14,8 +14,8 @@ namespace TestApp.BLL.Services
 
         public void AssignTask(int taskId, int employeeId)
         {
-            var employee = uof.Repository<Employee>().FindById(employeeId);
-            var task = uof.Repository<Task>().FindById(taskId);
+            var employee = uof.Repository<Employee>().GetById(employeeId);
+            var task = uof.Repository<Task>().GetById(taskId);
             task.Employee = employee;
             uof.Repository<Task>().Update(task);
             uof.Save();
@@ -23,7 +23,7 @@ namespace TestApp.BLL.Services
 
         public void SetTaskStatus(int taskId, string status)
         {
-            var task = uof.Repository<Task>().FindById(taskId);
+            var task = uof.Repository<Task>().GetById(taskId);
             task.Status = status;
             uof.Repository<Task>().Update(task);
             uof.Save();
