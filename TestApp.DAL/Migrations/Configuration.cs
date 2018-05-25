@@ -1,6 +1,6 @@
 namespace TestApp.DAL.Migrations
 {
-    using Domain.Core.Models;
+    using Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;

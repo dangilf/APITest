@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using TestApp.Domain.Core.Models;
+using TestApp.DAL.Models;
 
 namespace TestApp.DAL.EF
 {

@@ -3,13 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp.API", "TestApp.API\TestApp.API.csproj", "{83749BEF-3683-44A9-A9A4-151AC30265E8}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp.DAL", "TestApp.DAL\TestApp.DAL.csproj", "{6CB07D2D-2638-4A82-BB7F-CDFD0D851F89}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp.BLL", "TestApp.BLL\TestApp.BLL.csproj", "{38AE3575-3DDB-46FB-9284-BDE187B66F8E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp.Domain.Core", "TestApp.Domain.Core\TestApp.Domain.Core.csproj", "{A2DCFAA7-5B26-4F13-AA3D-391333FB8063}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp.API", "TestApp.API\TestApp.API.csproj", "{83749BEF-3683-44A9-A9A4-151AC30265E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +23,6 @@ Global
 		{38AE3575-3DDB-46FB-9284-BDE187B66F8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38AE3575-3DDB-46FB-9284-BDE187B66F8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38AE3575-3DDB-46FB-9284-BDE187B66F8E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A2DCFAA7-5B26-4F13-AA3D-391333FB8063}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A2DCFAA7-5B26-4F13-AA3D-391333FB8063}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A2DCFAA7-5B26-4F13-AA3D-391333FB8063}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A2DCFAA7-5B26-4F13-AA3D-391333FB8063}.Release|Any CPU.Build.0 = Release|Any CPU
 		{83749BEF-3683-44A9-A9A4-151AC30265E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{83749BEF-3683-44A9-A9A4-151AC30265E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83749BEF-3683-44A9-A9A4-151AC30265E8}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using TestApp.Domain.Core.Models;
+using TestApp.DAL.Models;
 
 namespace TestApp.DAL.Interfaces
 {

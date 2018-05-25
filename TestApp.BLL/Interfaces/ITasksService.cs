@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TestApp.Domain.Core.Models;
+using TestApp.BLL.Models;
+using TestApp.DAL.Models;
 
-namespace TestApp.BLL.Interfaces
+namespace TestApp.BLL.Services
 {
-    public interface ITasksService: IBaseService<Task>
+    public interface ITasksService: IBaseService<Task, TaskDTO>
     {
-        void AssignTask(int taskId, int employeeId);
+        void AssignTaskToEmployee(int taskId, int employeeId);
+        void AssignTaskToProject(int taskId, int projectId);
         void SetTaskStatus(int taskId, string status);        
     }
 }

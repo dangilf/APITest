@@ -4,26 +4,38 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using TestApp.BLL.Interfaces;
+using TestApp.BLL.Services;
+using TestApp.BLL.Models;
+using TestApp.DAL.Models;
 
 namespace TestApp.API.Controllers
 {
-    public class TasksController : ApiController
+    [RoutePrefix("tasks")]
+    public class TasksController : BaseApiController<Task, TaskDTO>
     {
         ITasksService tasksService;
 
-        public TasksController(ITasksService tskService)
+        public TasksController(ITasksService tskService):base(tskService)
         {
             tasksService = tskService;
         }
 
-        [Route("tasks/{taskId}/assign/{employeeId}")]
-        public void Post(int taskId,int employeeId)
+        [HttpPut]
+        [Route("{taskId}/assignToEmployee/{employeeId}")]
+        public void AssignTaskToEmployee(int taskId,int employeeId)
         {
-            tasksService.AssignTask(taskId, employeeId);
+            tasksService.AssignTaskToEmployee(taskId, employeeId);
         }
 
-        [Route("tasks/{taskId}/done")]
+        [HttpPut]
+        [Route("{taskId}/assignToProject/{projectId}")]
+        public void AssignTaskToProject(int taskId, int projectId)
+        {
+            tasksService.AssignTaskToProject(taskId, projectId);
+        }
+
+        [HttpPut]
+        [Route("{taskId}/{status}")]
         public void Post(int taskId, string status)
         {
             tasksService.SetTaskStatus(taskId, status);

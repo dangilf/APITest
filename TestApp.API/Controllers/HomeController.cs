@@ -1,6 +1,6 @@
 ﻿
 using System.Web.Mvc;
-using TestApp.BLL.Interfaces;
+using TestApp.BLL.Services;
 
 namespace TestApp.API.Controllers
 {

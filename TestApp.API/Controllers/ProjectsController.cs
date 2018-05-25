@@ -4,28 +4,32 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using TestApp.BLL.Interfaces;
-using TestApp.Domain.Core.Models;
+using TestApp.BLL.Services;
+using TestApp.BLL.Models;
+using TestApp.DAL.Models;
 
 namespace TestApp.API.Controllers
 {
-    public class ProjectsController : ApiController
+    [RoutePrefix("projects")]
+    public class ProjectsController : BaseApiController<Project, ProjectDTO>
     {
         IProjectsService projectsService;
 
-        public ProjectsController(IProjectsService prjService)
+        public ProjectsController(IProjectsService prjService):base(prjService)
         {
             projectsService = prjService;
         }
 
-        [Route("projects/{projectId}/tasks")]
-        public IEnumerable<Task> Get(int projectId)
+        [HttpGet]
+        [Route("{projectId}/tasks")]
+        public IEnumerable<TaskDTO> GetAllTasks(int projectId)
         {
             return projectsService.GetAllTasks(projectId);
         }
         
-        [Route("projects/{projectId}/tasks/{status}")]
-        public IEnumerable<Task> Get(int projectId, string status)
+        [HttpGet]
+        [Route("{projectId}/tasks/{status}")]
+        public IEnumerable<TaskDTO> GetTasksByStatus(int projectId, string status)
         {
             return projectsService.GetTasksByStatus(projectId, status);
         }

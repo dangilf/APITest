@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using TestApp.Domain.Core.Models;
+using TestApp.BLL.Models;
+using TestApp.DAL.Models;
 
-namespace TestApp.BLL.Interfaces
+namespace TestApp.BLL.Services
 {
-    public interface IEmployeesService: IBaseService<Employee>
+    public interface IEmployeesService: IBaseService<Employee,EmployeeDTO>
     {
-        IEnumerable<Task> GetAllTasks(int employeeId);
-        IEnumerable<Task> GetAllTasksByProject(int employeeId, int projectId);
-        IEnumerable<Task> GetAllTasksByStatus(int employeeId, string status);
-        
-
+        IEnumerable<TaskDTO> GetAllTasks(int employeeId);
+        IEnumerable<TaskDTO> GetAllTasksByProject(int employeeId, int projectId);
+        IEnumerable<TaskDTO> GetAllTasksByStatus(int employeeId, string status);
     }
 }

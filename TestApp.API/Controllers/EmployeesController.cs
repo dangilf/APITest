@@ -1,38 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
-using TestApp.BLL.Interfaces;
-using TestApp.Domain.Core.Models;
+using TestApp.BLL.Services;
+using TestApp.BLL.Models;
+using TestApp.DAL.Models;
 
 namespace TestApp.API.Controllers
 {
-    public class EmployeesController : ApiController
+    [RoutePrefix("employees")]
+    public class EmployeesController : BaseApiController<Employee,EmployeeDTO>
     {
         IEmployeesService employeesService;
 
-        public EmployeesController(IEmployeesService empService)
+        public EmployeesController(IEmployeesService empService):base(empService)
         {
             employeesService = empService;
         }
 
-        [Route("employees/{employeeId}/tasks")]
-        public IEnumerable<Task> Get(int employeeId)
+        [HttpGet]
+        [Route("{employeeId}/tasks")]
+        public IEnumerable<TaskDTO> GetAllTasks(int employeeId)
         {
-            var tasks = employeesService.GetAllTasks(employeeId);
-            return tasks;
+            return employeesService.GetAllTasks(employeeId); 
         }
 
-        [Route("employees/{employeeId}/{projectId}/tasks")]
-        public IEnumerable<Task> Get(int employeeId, int projectId)
+        [HttpGet]
+        [Route("{employeeId}/{projectId}/tasks")]
+        public IEnumerable<TaskDTO> GetTasksByProject(int employeeId, int projectId)
         {
             return employeesService.GetAllTasksByProject(employeeId, projectId);
         }
 
-        [Route("employees/{employeeId}/tasks/{status}")]
-        public IEnumerable<Task> Get(int employeeId,string status)
+        [HttpGet]
+        [Route("{employeeId}/tasks/{status}")]
+        public IEnumerable<TaskDTO> GetTasksByStatus(int employeeId,string status)
         {
             return employeesService.GetAllTasksByStatus(employeeId, status);
         }

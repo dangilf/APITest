@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using TestApp.DAL.Interfaces;
-using TestApp.Domain.Core.Models;
+using TestApp.DAL.Models;
 
 namespace TestApp.DAL.Repository
 {

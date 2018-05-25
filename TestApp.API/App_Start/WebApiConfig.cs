@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using TestApp.API.App_Start;
 
 namespace TestApp.API
 {
@@ -12,7 +13,7 @@ namespace TestApp.API
             // Web API configuration and services
 
             // Web API routes
-            config.MapHttpAttributeRoutes();
+            config.MapHttpAttributeRoutes(new CustomDirectRouteProvider());
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

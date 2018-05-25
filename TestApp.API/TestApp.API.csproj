@@ -176,6 +176,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\CustomDirectRouteProvider.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\Ninject.Web.Common.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -208,11 +209,11 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Controllers\TasksController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -282,10 +283,6 @@
     <ProjectReference Include="..\TestApp.DAL\TestApp.DAL.csproj">
       <Project>{6CB07D2D-2638-4A82-BB7F-CDFD0D851F89}</Project>
       <Name>TestApp.DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TestApp.Domain.Core\TestApp.Domain.Core.csproj">
-      <Project>{a2dcfaa7-5b26-4f13-aa3d-391333fb8063}</Project>
-      <Name>TestApp.Domain.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -54,6 +54,10 @@
       <DependentUpon>201805241405176_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\BaseEntity.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Project.cs" />
+    <Compile Include="Models\Task.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Repository\EFUnitOfWork.cs" />
@@ -62,12 +66,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TestApp.Domain.Core\TestApp.Domain.Core.csproj">
-      <Project>{a2dcfaa7-5b26-4f13-aa3d-391333fb8063}</Project>
-      <Name>TestApp.Domain.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201805241405176_initial.resx">

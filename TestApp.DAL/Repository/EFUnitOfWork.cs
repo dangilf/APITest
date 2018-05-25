@@ -2,7 +2,7 @@
 using System.Collections;
 using TestApp.DAL.EF;
 using TestApp.DAL.Interfaces;
-using TestApp.Domain.Core.Models;
+using TestApp.DAL.Models;
 
 namespace TestApp.DAL.Repository
 {
@@ -11,50 +11,12 @@ namespace TestApp.DAL.Repository
         private TestAppDBContext db;
         private Hashtable repositories;
 
-        //private Repository<Employee> employeesRepository;
-        //private Repository<Project> projectsRepository;
-        //private Repository<Task> tasksRepository;
-
         public EFUnitOfWork()
         {
             db = new TestAppDBContext();
         }
 
-        //public IRepository<Employee> Employees
-        //{
-        //    get
-        //    {
-        //        if(employeesRepository==null)
-        //        {
-        //            employeesRepository = new Repository<Employee>(db);
-        //        }
-        //        return employeesRepository;
-        //    }
-        //}
-
-        //public IRepository<Project> Projects
-        //{
-        //    get
-        //    {
-        //        if (projectsRepository == null)
-        //        {
-        //            projectsRepository = new Repository<Project>(db);
-        //        }
-        //        return projectsRepository;
-        //    }
-        //}
-
-        //public IRepository<Task> Tasks
-        //{
-        //    get
-        //    {
-        //        if (tasksRepository == null)
-        //        {
-        //            tasksRepository = new Repository<Task>(db);
-        //        }
-        //        return tasksRepository;
-        //    }
-        //}
+       
         public IRepository<TEntity> Repository<TEntity>() where TEntity : BaseEntity
         {
             if (repositories == null)

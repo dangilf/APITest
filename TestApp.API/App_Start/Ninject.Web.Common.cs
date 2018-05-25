@@ -13,10 +13,6 @@ namespace TestApp.API.App_Start
     using System.Web.Mvc;
     using Infrastructure;
     using Ninject.Web.Common.WebHost;
-    using BLL.Interfaces;
-    using BLL.Services;
-    using DAL.Repository;
-    using DAL.Interfaces;
 
     public static class NinjectWebCommon 
     {
